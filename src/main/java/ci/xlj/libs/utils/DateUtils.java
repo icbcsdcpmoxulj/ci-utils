@@ -40,8 +40,20 @@ public final class DateUtils {
 		}
 	}
 	
+	/**
+	 * @return yyyy-MM-dd_HH-mm-ss
+	 */
 	public static String toString(Date date){
+		return dateFormatter.format(date);
+	}
+	
+	/**
+	 * @return yyyy-MM-dd HH-mm-ss
+	 */
+	public static String toString2(Date date){
 		return dateFormatter2.format(date);
 	}
+	
+	
 	
 }
