@@ -32,6 +32,14 @@ public final class StringUtils {
 		return true;
 	}
 
+	public static boolean isValid(String[] strs) {
+		if (strs == null || strs.length == 0) {
+			return false;
+		}
+
+		return true;
+	}
+
 	public static boolean isUrl(String url) {
 		if (isValid(url) && url.startsWith("http://")) {
 			return true;
