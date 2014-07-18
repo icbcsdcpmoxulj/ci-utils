@@ -22,6 +22,12 @@ package ci.xlj.libs.utils;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
+/**
+ * Some useful string utilities for CI-related tools,plugins,etc.
+ * 
+ * @author kfzx-xulj
+ * 
+ */
 public final class StringUtils {
 
 	public static boolean isValid(String str) {
@@ -65,6 +71,9 @@ public final class StringUtils {
 		}
 	}
 
+	/**
+	 * Output Throwable object into string.
+	 */
 	public static String getStrackTrace(Throwable t) {
 		StringWriter writer = new StringWriter();
 		PrintWriter printWriter = new PrintWriter(writer);
