@@ -17,43 +17,25 @@
 
 //      Contributors:      Xu Lijia 
 
-package ci.xlj.libs.utils;
+package org.seterryxu.libs.utils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.File;
 
-public final class DateUtils {
+/**
+ * 
+ * @author Xu Lijia
+ * 
+ */
+public class ConfigUtils {
 
-	private static SimpleDateFormat dateFormatter = new SimpleDateFormat(
-			"yyyy-MM-dd_HH-mm-ss");
+	public static File getConfigFile(String jobDirPath) {
+		String configPath = jobDirPath + File.separator + "config.xml";
 
-	private static SimpleDateFormat dateFormatter2 = new SimpleDateFormat(
-			"yyyy-MM-dd HH:mm:ss");
-	
-	public static Date toDate(String buildId){
-		try {
-			return dateFormatter.parse(buildId);
-		} catch (ParseException e) {
-			StringUtils.getStrackTrace(e);
+		File config = new File(configPath);
+		if (config.exists() && config.canRead()) {
+			return config;
+		} else {
 			return null;
 		}
 	}
-	
-	/**
-	 * @return yyyy-MM-dd_HH-mm-ss
-	 */
-	public static String toString(Date date){
-		return dateFormatter.format(date);
-	}
-	
-	/**
-	 * @return yyyy-MM-dd HH-mm-ss
-	 */
-	public static String toString2(Date date){
-		return dateFormatter2.format(date);
-	}
-	
-	
-	
 }

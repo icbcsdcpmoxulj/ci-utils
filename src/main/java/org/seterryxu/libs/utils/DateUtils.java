@@ -17,24 +17,47 @@
 
 //      Contributors:      Xu Lijia 
 
-package ci.xlj.libs.utils;
+package org.seterryxu.libs.utils;
 
-public class OSUtils {
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-	public static boolean isWindows(){
-		String os=System.getenv("OS");
-		
-		if(StringUtils.isValid(os)&&os.contains("Win")){
-			return true;
+/**
+ * @author Xu Lijia
+ * 
+ */
+public final class DateUtils {
+
+	private static SimpleDateFormat dateFormatter = new SimpleDateFormat(
+			"yyyy-MM-dd_HH-mm-ss");
+
+	private static SimpleDateFormat dateFormatter2 = new SimpleDateFormat(
+			"yyyy-MM-dd HH:mm:ss");
+	
+	public static Date toDate(String buildId){
+		try {
+			return dateFormatter.parse(buildId);
+		} catch (ParseException e) {
+			StringUtils.getStrackTrace(e);
+			return null;
 		}
-		
-		return false;
 	}
 	
-	public static String getOSLineSeparator(){
-		if(isWindows())
-			return "\r\n";
-		else
-			return "\n";
+	/**
+	 * @return yyyy-MM-dd_HH-mm-ss
+	 */
+	public static String toString(Date date){
+		return dateFormatter.format(date);
 	}
+	
+	/**
+	 * @return yyyy-MM-dd HH-mm-ss
+	 */
+	public static String toString2(Date date){
+		return dateFormatter2.format(date);
+	}
+	
+	
+	
 }

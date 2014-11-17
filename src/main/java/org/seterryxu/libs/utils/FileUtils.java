@@ -17,20 +17,25 @@
 
 //      Contributors:      Xu Lijia 
 
-package ci.xlj.libs.utils;
+package org.seterryxu.libs.utils;
 
 import java.io.File;
+import java.net.URL;
 
-public class ConfigUtils {
+/**
+ * 
+ * @author Xu Lijia
+ * 
+ */
+public class FileUtils {
 
-	public static File getConfigFile(String jobDirPath) {
-		String configPath = jobDirPath + File.separator + "config.xml";
-
-		File config = new File(configPath);
-		if (config.exists() && config.canRead()) {
-			return config;
-		} else {
-			return null;
-		}
+	/**
+	 * 
+	 * @param url
+	 * @return
+	 */
+	public static File toFile(URL url){
+		return new File(url.toExternalForm());
 	}
+	
 }

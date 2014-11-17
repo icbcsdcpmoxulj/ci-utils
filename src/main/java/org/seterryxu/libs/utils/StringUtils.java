@@ -17,7 +17,7 @@
 
 //      Contributors:      Xu Lijia 
 
-package ci.xlj.libs.utils;
+package org.seterryxu.libs.utils;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -25,7 +25,7 @@ import java.io.StringWriter;
 /**
  * Some useful string utilities for CI-related tools,plugins,etc.
  * 
- * @author kfzx-xulj
+ * @author Xu Lijia
  * 
  */
 public final class StringUtils {
@@ -81,5 +81,13 @@ public final class StringUtils {
 		t.printStackTrace(printWriter);
 		StringBuffer buffer = writer.getBuffer();
 		return buffer.toString();
+	}
+
+	public static String camelize(String name) {
+		if (isValid(name)) {
+			return Character.toLowerCase(name.charAt(0)) + name.substring(1);
+		}
+
+		return null;
 	}
 }
